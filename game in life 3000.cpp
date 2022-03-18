@@ -1,7 +1,7 @@
 ﻿
 #include <iostream>
 #include "gen.h"
-//#include <conio.h>
+#include <windows.h> //do sleepa
 
 int main()
 {
@@ -22,7 +22,7 @@ int main()
 
     gen teraz(w, k, 1);
 
-    teraz.losowanie();
+    //teraz.losowanie();
 
     /*
     std::vector <std::vector <bool> > tab;
@@ -46,6 +46,23 @@ int main()
     */
 
 
+    
+    std::vector <std::vector <bool> > tab;
+    std::vector <bool> sex1 (3);
+    std::vector <bool> sex2 (3);
+    std::vector <bool> sex3 (3);
+    sex1[0] = true;
+    sex1[1] = true;
+    sex1[2] = true;
+    sex2[0] = true;
+    sex3[1] = true;
+    tab.push_back(sex1);
+    tab.push_back(sex2);
+    tab.push_back(sex3);
+
+    teraz.wymus(tab);
+    
+
 
     teraz.c_show();
 
@@ -54,11 +71,12 @@ int main()
     std::cout << std::endl;
     std::cout << std::endl;
 
+    int i=0;
     std::string s;
 
     std::cin >> s;
 
-    while (s!="koniec")
+    while (s != "koniec")
     {
         teraz.c_show();
         teraz.nowy();
@@ -67,6 +85,25 @@ int main()
         std::cout << std::endl;
         std::cin >> s;
         teraz = nast;
+
+        i++;
+
+        
+        
     }
     return 0;
+
+
+
+    /*
+    * 
+    * przykłady użycia akcesorów (dla debili)
+    * 
+    int x = teraz.get_k();
+        x = teraz.get_w();
+        x = teraz.get_iteracja();
+        std::vector <std::vector <bool> > robocza = teraz.get_tab();
+
+        int dummy = 0;
+    */
 }

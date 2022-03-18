@@ -5,11 +5,13 @@
 
 class gen
 {
-public:
+private:
 	int w;
 	int k;
 	std::vector <std::vector <bool> > tab;
 	int iteracja;
+
+public:
 
 	gen(int w,int k,int iteracja): w(w),k(k),iteracja(iteracja),tab(w,std::vector<bool>(k)) {} //z lista inicjalizacyjna
 
@@ -50,7 +52,7 @@ public:
 				}
 				else
 				{
-					std::cout << 'o';
+					std::cout << '.';
 				}
 			}
 			std::cout << std::endl;
@@ -150,7 +152,36 @@ public:
 
 	void wymus(std::vector <std::vector <bool> > tabw)
 	{
-		tab = tabw;
+		for (int i = 0; i < tabw.size(); i++)
+		{
+			for (int j = 0; j < tabw[i].size(); j++)
+			{
+				tab[i][j] = tabw[i][j];
+			}
+		}
+		//tab = tabw;
 	}
+
+
+	int get_k() 
+	{ 
+		return k;
+	}
+
+	int get_w()
+	{
+		return w;
+	}
+	
+	int get_iteracja()
+	{
+		return iteracja;
+	}
+
+	std::vector <std::vector <bool> > get_tab()
+	{
+		return tab;
+	}
+
 };
 
