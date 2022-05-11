@@ -1,7 +1,8 @@
 ﻿
 #include <iostream>
 #include "gen.h"
-//#include <conio.h>
+#include <windows.h> //do sleepa
+#include <time.h>
 
 int main()
 {
@@ -22,7 +23,7 @@ int main()
 
     gen teraz(w, k, 1);
 
-    teraz.losowanie();
+    
 
     /*
     std::vector <std::vector <bool> > tab;
@@ -46,6 +47,23 @@ int main()
     */
 
 
+    
+    std::vector <std::vector <bool> > tab;
+    std::vector <bool> sex1 (3);
+    std::vector <bool> sex2 (3);
+    std::vector <bool> sex3 (3);
+    sex1[0] = true;
+    sex1[1] = true;
+    sex1[2] = true;
+    sex2[0] = true;
+    sex3[1] = true;
+    tab.push_back(sex1);
+    tab.push_back(sex2);
+    tab.push_back(sex3);
+
+    //teraz.wymus(tab);
+    teraz.losowanie();
+
 
     teraz.c_show();
 
@@ -54,6 +72,7 @@ int main()
     std::cout << std::endl;
     std::cout << std::endl;
 
+    int i=0;
     std::string s;
 
     std::cin >> s;
@@ -67,6 +86,11 @@ int main()
         std::cout << std::endl;
         std::cin >> s;
         teraz = nast;
+
+        i++;
+
+        
+        
     }
     return 0;
 }

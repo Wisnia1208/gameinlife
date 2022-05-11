@@ -21,7 +21,7 @@ public:
 
 	~gen();//destruktor
 
-	void losowanie();
+	void losowanie();//to do prawdopodobienstwo
 
 	void c_show();
 
@@ -34,4 +34,14 @@ public:
 	void nowy(); //przygotowywyje generacje nastêpn¹
 
 	void wymus(std::vector <std::vector <bool> > tabw);
+
+	/*
+	to do
+
+	std::vector <std::vector <int> > wiek;
+
+	bool zapis();
+
+	void symulacja();
+	*/
 };
