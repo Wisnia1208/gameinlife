@@ -1,15 +1,5 @@
 #include "gen.h"
-
-
 #pragma once
-
-
-//dodaæ wiêcej polulacji
-
-	int w;
-	int k;
-	std::vector <std::vector <bool> > tab;
-	int iteracja;
 
 	gen::gen(int w, int k, int iteracja) : w(w), k(k), iteracja(iteracja), tab(w, std::vector<bool>(k)) {} //z lista inicjalizacyjna
 
@@ -18,8 +8,6 @@
 		w = popr.w;
 		k = popr.k;
 		iteracja = popr.iteracja + 1;
-		//tab = popr.tab;
-
 		tab = popr.tab;
 	} //kopiujacy
 
