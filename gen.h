@@ -21,7 +21,7 @@ public:
 
 	~gen();//destruktor
 
-	void losowanie();//to do prawdopodobienstwo
+	void losowanie(float p);//to do prawdopodobienstwo
 
 	void c_show();
 

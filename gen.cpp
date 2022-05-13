@@ -2,9 +2,7 @@
 
 
 #pragma once
-#include <vector>
-#include <iostream>
-#include <cstdlib>
+
 
 //dodaæ wiêcej polulacji
 
@@ -27,13 +25,17 @@
 
 	gen::~gen() {}; //destruktor
 
-	void gen::losowanie()
+	void gen::losowanie(float p)
 	{
+		p *= 100;
 		for (int i = 0; i < w; i++)
 		{
 			for (int j = 0; j < k; j++)
 			{
-				tab[i][j] = (std::rand() % 2);
+				if ((std::rand() % 100) <= p) 
+				{
+					tab[i][j] = 1;
+				}				
 			}
 		}
 	}

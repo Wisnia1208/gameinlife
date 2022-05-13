@@ -62,7 +62,7 @@ int main()
     tab.push_back(sex3);
 
     //teraz.wymus(tab);
-    teraz.losowanie();
+    teraz.losowanie(0.01);
 
 
     teraz.c_show();
