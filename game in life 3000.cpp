@@ -22,6 +22,7 @@ int main()
     std::cout << std::endl;
 
     gen teraz(w, k, 1);
+    
 
     
 
@@ -62,11 +63,11 @@ int main()
     tab.push_back(sex3);
 
     //teraz.wymus(tab);
-    teraz.losowanie(0.01);
-
+    teraz.losowanie(0.5);
+    teraz.set_min_max(2, 3);
 
     teraz.c_show();
-
+    teraz.w_show();
     teraz.nowy();
 
     std::cout << std::endl;
@@ -79,7 +80,9 @@ int main()
 
     while (s!="koniec")
     {
+        teraz.postarzej(7);
         teraz.c_show();
+        teraz.w_show();
         teraz.nowy();
         gen nast(teraz);
         std::cout << std::endl;

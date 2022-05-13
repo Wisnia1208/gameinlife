@@ -6,21 +6,17 @@
 
 //dodaæ wiêcej polulacji
 
-	int w;
-	int k;
-	std::vector <std::vector <bool> > tab;
-	int iteracja;
-
-	gen::gen(int w, int k, int iteracja) : w(w), k(k), iteracja(iteracja), tab(w, std::vector<bool>(k)) {} //z lista inicjalizacyjna
+	gen::gen(int w, int k, int iteracja) : w(w), k(k), iteracja(iteracja), tab(w, std::vector<bool>(k)), wiek(w, std::vector<int>(k)) {} //z lista inicjalizacyjna
 
 	gen::gen(const gen& popr)
 	{
 		w = popr.w;
 		k = popr.k;
 		iteracja = popr.iteracja + 1;
-		//tab = popr.tab;
-
 		tab = popr.tab;
+		wiek = popr.wiek; 
+		max_sasiady=popr.max_sasiady;
+		min_sasiady=popr.min_sasiady;
 	} //kopiujacy
 
 	gen::~gen() {}; //destruktor
@@ -116,7 +112,7 @@
 		return ile;
 	}
 
-	std::vector <std::vector <bool> > gen::tabn(std::vector <std::vector <bool> > tab)
+	std::vector <std::vector <bool> > gen::tabn(std::vector <std::vector <bool> > tab,int min_s,int max_s)
 	{
 		int ilosc;
 		std::vector <std::vector <bool> > robo = tab;
@@ -126,11 +122,11 @@
 			for (int j = 0; j < k; j++)
 			{
 				ilosc = dookola(i, j);
-				if ((!tab[i][j]) and (ilosc == 3))
+				if ((!tab[i][j]) and (ilosc == max_s))
 				{
 					robo[i][j] = true;
 				}
-				else if ((tab[i][j]) and ((ilosc == 3) or (ilosc == 2)))
+				else if ((tab[i][j]) and ((ilosc <= max_s) and (ilosc >= min_s)))
 				{
 					robo[i][j] = true;
 				}
@@ -149,7 +145,7 @@
 
 	void gen::nowy() //przygotowywyje generacje nastêpn¹
 	{
-		tab = tabn(tab);
+		tab = tabn(tab, min_sasiady,max_sasiady);
 	}
 
 	void gen::wymus(std::vector <std::vector <bool> > tabw)
@@ -157,4 +153,47 @@
 		tab = tabw;
 	}
 
+	void gen::postarzej(int max_wiek)
+	{
+		for (int i = 0; i < w; i++)
+		{
+			for (int j = 0; j < k; j++)
+			{
+				if (tab[i][j])
+				{
+					wiek[i][j]++;
+					if (wiek[i][j]==max_wiek)
+					{
+						wiek[i][j] = 0;
+						tab[i][j] = 0;
+					}
+				}
+				else
+				{
+					wiek[i][j] = 0;
+				}
+			}
+		}
+	}
 
+	void gen::w_show()
+	{
+		//system("cls");
+		std::cout << std::endl << std::endl;
+
+		for (int i = 0; i < w; i++)
+		{
+			for (int j = 0; j < k; j++)
+			{
+				std::cout << wiek[i][j];
+			}
+			std::cout << std::endl;
+		}
+		std::cout << std::endl << iteracja;
+	}
+
+	void gen::set_min_max(int min, int max)
+	{
+		max_sasiady=max;
+		min_sasiady=min;
+	}
