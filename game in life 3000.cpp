@@ -66,9 +66,9 @@ int main()
     teraz.losowanie(0.5);
     teraz.set_min_max(2, 3);
 
-    teraz.c_show();
-    teraz.w_show();
-    teraz.nowy();
+    //teraz.c_show();
+    //teraz.w_show();
+    //teraz.nowy();
 
     std::cout << std::endl;
     std::cout << std::endl;
@@ -77,6 +77,8 @@ int main()
     std::string s;
 
     std::cin >> s;
+
+    //przed pierwszą (max wiek,w,k,min_s,max_s,prawdopodobienstwo)
 
     while (s!="koniec")
     {

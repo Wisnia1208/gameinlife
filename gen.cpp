@@ -1,6 +1,4 @@
 #include "gen.h"
-
-
 #pragma once
 
 
